@@ -2,15 +2,15 @@
 
 # Första siffran
 
-0 Högst kort
-1 Ett par
-2 Två par
-3 Triss
-4 Stege
-5 Färg
-6 Kåk
-7 Fyrtal
-8 Färgstege
+0. Högst kort
+1. Ett par
+2. Två par
+3. Triss
+4. Stege
+5. Färg
+6. Kåk
+7. Fyrtal
+8. Färgstege
 
 # Beteckningar
 ```

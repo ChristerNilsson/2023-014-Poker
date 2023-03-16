@@ -22,14 +22,14 @@ range = _.range
 ass = (a,b) => if a!=b then console.log 'Assert failed',a,'!=',b
 
 sort = (lst) => lst.sort (a,b) => b-a
-spaceOp =(a,b) =>
+spaceShip =(a,b) =>
 	if a == b then 0 # lika
 	else if a < b then 1 else -1 # 1=stigande, -1=fallande
 
 compare = (na,nb) =>
 	a = hands[na]
 	b = hands[nb]
-	res = spaceOp a.comp,b.comp
+	res = spaceShip a.comp,b.comp
 	console.log na,'<=>',nb,'Vinnare:',[na,'split',nb][res+1]
 	res
 
@@ -116,7 +116,7 @@ class Hand
 			@valueCount[1] = @valueCount[1][0]
 			return true
 		false
-	färg : -> @colorCount == '5'
+	färg : -> @colorCount
 
 	groupValues : ->
 		arr = []
@@ -135,7 +135,7 @@ class Hand
 		for card in @lst
 			arr[card %% 4]++
 		arr = _.compact arr # tar bort alla nollor
-		if arr.length == 1 then '5' else ''
+		arr.length == 1
 
 hands = []
 hands.push new Hand "h3 d4 sA c5 c6", '0:E6543' # 0
@@ -158,21 +158,21 @@ hands.push new Hand "c2 c3 c4 c5 c6", '8:6' # 16
 hands.push new Hand "cK cT cJ cQ c9", '8:D' # 17
 hands.push new Hand "cT cJ cQ cK cA", '8:E' # 18
 
-ass  0, compare 0,  0
-ass  1, compare 0,  1
-ass  1, compare 0,  2
-ass  1, compare 2,  3
-ass  0, compare 3,  3
-ass  0, compare 3,  4
-ass  1, compare 6,  7
-ass  1, compare 5,  6
-ass  1, compare 5,  7
-ass  1, compare 8,  9
-ass  0, compare 10,11
-ass  1, compare 10,12
-ass  1, compare 13,14
-ass  1, compare 15,16
-ass  1, compare 17,18
+ass 0, compare  0, 0
+ass 1, compare  0, 1
+ass 1, compare  0, 2
+ass 1, compare  2, 3
+ass 0, compare  3, 3
+ass 0, compare  3, 4
+ass 1, compare  6, 7
+ass 1, compare  5, 6
+ass 1, compare  5, 7
+ass 1, compare  8, 9
+ass 0, compare 10,11
+ass 1, compare 10,12
+ass 1, compare 13,14
+ass 1, compare 15,16
+ass 1, compare 17,18
 
 window.setup = ->
 	createCanvas 500, 400
